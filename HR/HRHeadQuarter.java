@@ -5,6 +5,8 @@ public class HRHeadQuarter extends Department implements HandleTask {
     // instance variable news, getStatus
     private String news;
     private String status;
+    private String empLevel;
+    private int salary;
 
     /**
      * @param: departName: String, departType: String, description: String, location: Location, timeDurationWork: int,
@@ -12,10 +14,11 @@ public class HRHeadQuarter extends Department implements HandleTask {
      * public HRHeadQuarter constructor
      * */
     public HRHeadQuarter(String departName, String departType, String description, Location location,
-                         int timeDurationWork, String news, String status) {
+                         int timeDurationWork, String news, String status, String empLevel) {
         super(departName, departType, description, location, timeDurationWork);
         this.news = news;
         this.status = status;
+        this.empLevel = empLevel;
     }
 
     /**
@@ -39,6 +42,23 @@ public class HRHeadQuarter extends Department implements HandleTask {
 
     @Override
     public void getPay() {
+        if (empLevel.equalsIgnoreCase("Manager")) {
+            salray = 100;
+        }
+        else if (empLevel.equalsIgnoreCase("Recruiter")) {
+            salray = 1000;
+        }
+        else if (empLevel.equalsIgnoreCase("Regular Employee")) {
+            salray = 1000;
+        }
+    }
+
+    @Override
+    public void getEmpExpense() {
+
+    }
+
+    private boolean isHoliday() {
 
     }
 
