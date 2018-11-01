@@ -8,6 +8,4 @@ public interface HandleTask {
      * */
     String newsAnnounce();
     void employStatus();
-    void getPay();
-    void getEmpExpense();
 }
