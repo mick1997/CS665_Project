@@ -84,33 +84,33 @@ public class TestCaseClass {
      * print the whole records of employees' information and situation of each region of the Human Resource
      * for using of hard code employee
      * */
-//    public static void printRecords() {
-//
-//        // create TestCaseClass object and print employee information such as Manager or Recruiter
-//        System.out.println(TestCaseClass.createList());
-//
-//        // create USA(head quarter) object that prints employee situation in head quarter
-//        System.out.println("\nThe employee getStatus for USA(head Quarter):\n");
-//        GeneralHR hq = new GeneralHR("Human Recourse", "Take care of employees",
-//                "The department is in charge of all employees in company", Location.USA, 8,
-//                "The company is in good shape and hired more people.", "Good");
-//        hq.employStatus();
-//        System.out.println(hq);
-//
-//        // create Canada site object that prints employee situation in Canada site
-//        System.out.println("\nThe employee getStatus for Canada:\n");
-//        HRSiteCanada canada = new HRSiteCanada("Human Recourse", "Take care of employees",
-//                "The department is in charge of all employee in company", Location.Canada, 8,
-//                "Some new hired", "Good");
-//        canada.employStatus();
-//        System.out.println(canada);
-//
-//        // create Japan site object that prints employee situation in Europe site
-//        System.out.println("\nThe employee getStatus for Japan:\n");
-//        HRSiteJapan europe = new HRSiteJapan("Human Recourse", "Take care of employees",
-//                "The department is in charge of all employee in company", Location.Japan, 8,
-//                "Some new hired", "Terminated");
-//        europe.employStatus();
-//        System.out.println(europe);
-//    }
+    public static void printRecords() {
+
+        // create TestCaseClass object and print employee information such as Manager or Recruiter
+        System.out.println(TestCaseClass.createList());
+
+        // create USA(head quarter) object that prints employee situation in head quarter
+        System.out.println("\nThe employee getStatus for USA(head Quarter):\n");
+        GeneralHR hq = new GeneralHR("Human Recourse", "Take care of employees",
+                "The department is in charge of all employees in company", Location.USA, 8,
+                "The company is in good shape and hired more people.", "Good");
+        hq.employStatus();
+        System.out.println(hq);
+
+        // create Canada site object that prints employee situation in Canada site
+        System.out.println("\nThe employee getStatus for Canada:\n");
+        GeneralHR canada = new GeneralHR("Human Recourse", "Take care of employees",
+                "The department is in charge of all employee in company", Location.Canada, 8,
+                "Some new hired", "Good");
+        canada.employStatus();
+        System.out.println(canada);
+
+        // create Japan site object that prints employee situation in Europe site
+        System.out.println("\nThe employee getStatus for Japan:\n");
+        GeneralHR japan = new GeneralHR("Human Recourse", "Take care of employees",
+                "The department is in charge of all employee in company", Location.Japan, 8,
+                "Some new hired", "Terminated");
+        japan.employStatus();
+        System.out.println(japan);
+    }
 }

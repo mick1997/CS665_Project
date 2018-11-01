@@ -6,6 +6,6 @@ public class DrivenClass {
         // print the whole records (for test case use)
         //TestCaseClass.printRecords();
         // create employee information (by using Human Resource System)
-        CreateEmployee.createEmployee();
+        GeneralSystem.createEmployee();
     }
 }

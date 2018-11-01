@@ -1,6 +1,6 @@
 package HR;
 
-public class GeneralHR extends Department implements HandleTask {
+public class GeneralHR extends Department implements HandleAllTask {
 
     // instance variable news, status
     private String news;
@@ -37,6 +37,12 @@ public class GeneralHR extends Department implements HandleTask {
         getStatus(status);
     }
 
+    // implements but, no use
+    @Override
+    public double getPayment() {
+        return 0;
+    }
+
     /**
      * @param: title: String, country: String, empLevel: String
      * @return: None
@@ -45,6 +51,7 @@ public class GeneralHR extends Department implements HandleTask {
     public static void getSalary(String title, String country, String empLevel) {
 
         int fullTimeSalaryAvePerYr = 150000;
+        int fullTimeSalaryGenAvePerYr = 100000;
         int dividend = 1000;
         int baseSalaryPerHr = 15;
         
@@ -52,25 +59,25 @@ public class GeneralHR extends Department implements HandleTask {
             if (country.equals("1")) {
                 switch (title) {
                     case "Chief Executive Officer":
-                        System.out.println("The Chief Executive Officer got paid $" + (fullTimeSalaryAvePerYr * dividend) / 12 + " per month.");
+                        System.out.println("The Chief Executive Officer got paid $" + (fullTimeSalaryAvePerYr + dividend) / 12 + " per month.");
                         break;
                     case "President":
-                        System.out.println("The President got paid $" + (fullTimeSalaryAvePerYr * dividend) / 12 + " per month.");
+                        System.out.println("The President got paid $" + (fullTimeSalaryAvePerYr + dividend) / 12 + " per month.");
                         break;
                     case "Vice President":
-                        System.out.println("The Vice President got paid $" + (fullTimeSalaryAvePerYr * dividend) / 12 + " per month.");
+                        System.out.println("The Vice President got paid $" + (fullTimeSalaryAvePerYr + dividend) / 12 + " per month.");
                         break;
                     case "Director":
-                        System.out.println("The Director got paid $" + (fullTimeSalaryAvePerYr * dividend) / 12 + " per month.");
+                        System.out.println("The Director got paid $" + (fullTimeSalaryAvePerYr + dividend) / 12 + " per month.");
                         break;
                     case "Administrator":
-                        System.out.println("The Administrator got paid $" + (fullTimeSalaryAvePerYr * dividend) / 12 + " per month.");
+                        System.out.println("The Administrator got paid $" + (fullTimeSalaryAvePerYr + dividend) / 12 + " per month.");
                         break;
                     case "General Manager":
-                        System.out.println("The General Manager got paid $" + (fullTimeSalaryAvePerYr * dividend) / 12 + " per month.");
+                        System.out.println("The General Manager got paid $" + (fullTimeSalaryAvePerYr + dividend) / 12 + " per month.");
                         break;
                     case "Manager":
-                        System.out.println("The Manager got paid $" + (fullTimeSalaryAvePerYr * dividend) / 12 + " per month.");
+                        System.out.println("The Manager got paid $" + (fullTimeSalaryAvePerYr + dividend) / 12 + " per month.");
                         break;
                     default:
                         System.out.println("There is no such Title exists!!!");
@@ -79,25 +86,25 @@ public class GeneralHR extends Department implements HandleTask {
             else if (country.equals("2")) {
                 switch (title) {
                     case "Chief Executive Officer":
-                        System.out.println("The Chief Executive Officer got paid $" + ((fullTimeSalaryAvePerYr * dividend) / 12) * 1.31 + " per month.");
+                        System.out.println("The Chief Executive Officer got paid $" + ((fullTimeSalaryAvePerYr + dividend) / 12) * 1.31 + " per month.");
                         break;
                     case "President":
-                        System.out.println("The President got paid $" + ((fullTimeSalaryAvePerYr * dividend) / 12) * 1.31 + " per month.");
+                        System.out.println("The President got paid $" + ((fullTimeSalaryAvePerYr + dividend) / 12) * 1.31 + " per month.");
                         break;
                     case "Vice President":
-                        System.out.println("The Vice President got paid $" + ((fullTimeSalaryAvePerYr * dividend) / 12) * 1.31 + " per month.");
+                        System.out.println("The Vice President got paid $" + ((fullTimeSalaryAvePerYr + dividend) / 12) * 1.31 + " per month.");
                         break;
                     case "Director":
-                        System.out.println("The Director got paid $" + ((fullTimeSalaryAvePerYr * dividend) / 12) * 1.31 + " per month.");
+                        System.out.println("The Director got paid $" + ((fullTimeSalaryAvePerYr + dividend) / 12) * 1.31 + " per month.");
                         break;
                     case "Administrator":
-                        System.out.println("The Administrator got paid $" + ((fullTimeSalaryAvePerYr * dividend) / 12) * 1.31 + " per month.");
+                        System.out.println("The Administrator got paid $" + ((fullTimeSalaryAvePerYr + dividend) / 12) * 1.31 + " per month.");
                         break;
                     case "General Manager":
-                        System.out.println("The General Manager got paid $" + ((fullTimeSalaryAvePerYr * dividend) / 12) * 1.31 + " per month.");
+                        System.out.println("The General Manager got paid $" + ((fullTimeSalaryAvePerYr + dividend) / 12) * 1.31 + " per month.");
                         break;
                     case "Manager":
-                        System.out.println("The Manager got paid $" + ((fullTimeSalaryAvePerYr * dividend) / 12) * 1.31 + " per month.");
+                        System.out.println("The Manager got paid $" + ((fullTimeSalaryAvePerYr + dividend) / 12) * 1.31 + " per month.");
                         break;
                     default:
                         System.out.println("There is no such Title exists!!!");
@@ -106,25 +113,25 @@ public class GeneralHR extends Department implements HandleTask {
             else if (country.equals("3")) {
                 switch (title) {
                     case "Chief Executive Officer":
-                        System.out.println("The Chief Executive Officer got paid ¥" + ((fullTimeSalaryAvePerYr * dividend) / 12) * 113.25 + " per month.");
+                        System.out.println("The Chief Executive Officer got paid ¥" + ((fullTimeSalaryAvePerYr + dividend) / 12) * 113.25 + " per month.");
                         break;
                     case "President":
-                        System.out.println("The President got paid ¥" + ((fullTimeSalaryAvePerYr * dividend) / 12) * 113.25 + " per month.");
+                        System.out.println("The President got paid ¥" + ((fullTimeSalaryAvePerYr + dividend) / 12) * 113.25 + " per month.");
                         break;
                     case "Vice President":
-                        System.out.println("The Vice President got paid ¥" + ((fullTimeSalaryAvePerYr * dividend) / 12) * 113.25 + " per month.");
+                        System.out.println("The Vice President got paid ¥" + ((fullTimeSalaryAvePerYr + dividend) / 12) * 113.25 + " per month.");
                         break;
                     case "Director":
-                        System.out.println("The Director got paid ¥" + ((fullTimeSalaryAvePerYr * dividend) / 12) * 113.25 + " per month.");
+                        System.out.println("The Director got paid ¥" + ((fullTimeSalaryAvePerYr + dividend) / 12) * 113.25 + " per month.");
                         break;
                     case "Administrator":
-                        System.out.println("The Administrator got paid ¥" + ((fullTimeSalaryAvePerYr * dividend) / 12) * 113.25 + " per month.");
+                        System.out.println("The Administrator got paid ¥" + ((fullTimeSalaryAvePerYr + dividend) / 12) * 113.25 + " per month.");
                         break;
                     case "General Manager":
-                        System.out.println("The General Manager got paid ¥" + ((fullTimeSalaryAvePerYr * dividend) / 12) * 113.25 + " per month.");
+                        System.out.println("The General Manager got paid ¥" + ((fullTimeSalaryAvePerYr + dividend) / 12) * 113.25 + " per month.");
                         break;
                     case "Manager":
-                        System.out.println("The Manager got paid ¥" + ((fullTimeSalaryAvePerYr * dividend) / 12) * 113.25 + " per month.");
+                        System.out.println("The Manager got paid ¥" + ((fullTimeSalaryAvePerYr + dividend) / 12) * 113.25 + " per month.");
                         break;
                     default:
                         System.out.println("There is no such Title exists!!!");
@@ -135,25 +142,25 @@ public class GeneralHR extends Department implements HandleTask {
             if (country.equals("1")) {
                 switch (title) {
                     case "Chief Financial Officer":
-                        System.out.println("The Chief Financial Officer got paid $" + (fullTimeSalaryAvePerYr * dividend) / 12 + " per month.");
+                        System.out.println("The Chief Financial Officer got paid $" + (fullTimeSalaryAvePerYr + dividend) / 12 + " per month.");
                         break;
                     case "Chief Technical Officer":
-                        System.out.println("The Chief Technical Officer got paid $" + (fullTimeSalaryAvePerYr * dividend) / 12 + " per month.");
+                        System.out.println("The Chief Technical Officer got paid $" + (fullTimeSalaryAvePerYr + dividend) / 12 + " per month.");
                         break;
                     case "Chief Sales Officer":
-                        System.out.println("The Chief Sales Officer got paid $" + (fullTimeSalaryAvePerYr * dividend) / 12 + " per month.");
+                        System.out.println("The Chief Sales Officer got paid $" + (fullTimeSalaryAvePerYr + dividend) / 12 + " per month.");
                         break;
                     case "Chief Marketing Officer":
-                        System.out.println("The Chief Marketing Officer got paid $" + (fullTimeSalaryAvePerYr * dividend) / 12 + " per month.");
+                        System.out.println("The Chief Marketing Officer got paid $" + (fullTimeSalaryAvePerYr + dividend) / 12 + " per month.");
                         break;
                     case "Chief HR Officer":
-                        System.out.println("The Chief HR Officer got paid $" + (fullTimeSalaryAvePerYr * dividend) / 12 + " per month.");
+                        System.out.println("The Chief HR Officer got paid $" + (fullTimeSalaryAvePerYr + dividend) / 12 + " per month.");
                         break;
                     case "Chief Business Officer":
-                        System.out.println("The Chief Business Officer got paid $" + (fullTimeSalaryAvePerYr * dividend) / 12 + " per month.");
+                        System.out.println("The Chief Business Officer got paid $" + (fullTimeSalaryAvePerYr + dividend) / 12 + " per month.");
                         break;
                     case "Chief Quality Officer":
-                        System.out.println("The Chief Quality Officer got paid $" + (fullTimeSalaryAvePerYr * dividend) / 12 + " per month.");
+                        System.out.println("The Chief Quality Officer got paid $" + (fullTimeSalaryAvePerYr + dividend) / 12 + " per month.");
                         break;
                     default:
                         System.out.println("There is no such Title exists!!!");
@@ -162,25 +169,25 @@ public class GeneralHR extends Department implements HandleTask {
             else if (country.equals("2")) {
                 switch (title) {
                     case "Chief Financial Officer":
-                        System.out.println("The Chief Financial Officer got paid $" + ((fullTimeSalaryAvePerYr * dividend) / 12) * 1.31 + " per month.");
+                        System.out.println("The Chief Financial Officer got paid $" + ((fullTimeSalaryAvePerYr + dividend) / 12) * 1.31 + " per month.");
                         break;
                     case "Chief Technical Officer":
-                        System.out.println("The Chief Technical Officer got paid $" + ((fullTimeSalaryAvePerYr * dividend) / 12) * 1.31 + " per month.");
+                        System.out.println("The Chief Technical Officer got paid $" + ((fullTimeSalaryAvePerYr + dividend) / 12) * 1.31 + " per month.");
                         break;
                     case "Chief Sales Officer":
-                        System.out.println("The Chief Sales Officer got paid $" + ((fullTimeSalaryAvePerYr * dividend) / 12) * 1.31 + " per month.");
+                        System.out.println("The Chief Sales Officer got paid $" + ((fullTimeSalaryAvePerYr + dividend) / 12) * 1.31 + " per month.");
                         break;
                     case "Chief Marketing Officer":
-                        System.out.println("The Chief Marketing Officer got paid $" + ((fullTimeSalaryAvePerYr * dividend) / 12) * 1.31 + " per month.");
+                        System.out.println("The Chief Marketing Officer got paid $" + ((fullTimeSalaryAvePerYr + dividend) / 12) * 1.31 + " per month.");
                         break;
                     case "Chief HR Officer":
-                        System.out.println("The Chief HR Officer got paid $" + ((fullTimeSalaryAvePerYr * dividend) / 12) * 1.31 + " per month.");
+                        System.out.println("The Chief HR Officer got paid $" + ((fullTimeSalaryAvePerYr + dividend) / 12) * 1.31 + " per month.");
                         break;
                     case "Chief Business Officer":
-                        System.out.println("The Chief Business Officer got paid $" + ((fullTimeSalaryAvePerYr * dividend) / 12) * 1.31 + " per month.");
+                        System.out.println("The Chief Business Officer got paid $" + ((fullTimeSalaryAvePerYr + dividend) / 12) * 1.31 + " per month.");
                         break;
                     case "Chief Quality Officer":
-                        System.out.println("The Chief Quality Officer got paid $" + ((fullTimeSalaryAvePerYr * dividend) / 12) * 1.31 + " per month.");
+                        System.out.println("The Chief Quality Officer got paid $" + ((fullTimeSalaryAvePerYr + dividend) / 12) * 1.31 + " per month.");
                         break;
                     default:
                         System.out.println("There is no such Title exists!!!");
@@ -189,25 +196,25 @@ public class GeneralHR extends Department implements HandleTask {
             else if (country.equals("3")) {
                 switch (title) {
                     case "Chief Financial Officer":
-                        System.out.println("The Chief Financial Officer got paid ¥" + ((fullTimeSalaryAvePerYr * dividend) / 12) * 113.25 + " per month.");
+                        System.out.println("The Chief Financial Officer got paid ¥" + ((fullTimeSalaryAvePerYr + dividend) / 12) * 113.25 + " per month.");
                         break;
                     case "Chief Technical Officer":
-                        System.out.println("The Chief Technical Officer got paid ¥" + ((fullTimeSalaryAvePerYr * dividend) / 12) * 113.25 + " per month.");
+                        System.out.println("The Chief Technical Officer got paid ¥" + ((fullTimeSalaryAvePerYr + dividend) / 12) * 113.25 + " per month.");
                         break;
                     case "Chief Sales Officer":
-                        System.out.println("The Chief Sales Officer got paid ¥" + ((fullTimeSalaryAvePerYr * dividend) / 12) * 113.25 + " per month.");
+                        System.out.println("The Chief Sales Officer got paid ¥" + ((fullTimeSalaryAvePerYr + dividend) / 12) * 113.25 + " per month.");
                         break;
                     case "Chief Marketing Officer":
-                        System.out.println("The Chief Marketing Officer got paid ¥" + ((fullTimeSalaryAvePerYr * dividend) / 12) * 113.25 + " per month.");
+                        System.out.println("The Chief Marketing Officer got paid ¥" + ((fullTimeSalaryAvePerYr + dividend) / 12) * 113.25 + " per month.");
                         break;
                     case "Chief HR Officer":
-                        System.out.println("The Chief HR Officer got paid ¥" + ((fullTimeSalaryAvePerYr * dividend) / 12) * 113.25 + " per month.");
+                        System.out.println("The Chief HR Officer got paid ¥" + ((fullTimeSalaryAvePerYr + dividend) / 12) * 113.25 + " per month.");
                         break;
                     case "Chief Business Officer":
-                        System.out.println("The Chief Business Officer got paid ¥" + ((fullTimeSalaryAvePerYr * dividend) / 12) * 113.25 + " per month.");
+                        System.out.println("The Chief Business Officer got paid ¥" + ((fullTimeSalaryAvePerYr + dividend) / 12) * 113.25 + " per month.");
                         break;
                     case "Chief Quality Officer":
-                        System.out.println("The Chief Quality Officer got paid ¥" + ((fullTimeSalaryAvePerYr * dividend) / 12) * 113.25 + " per month.");
+                        System.out.println("The Chief Quality Officer got paid ¥" + ((fullTimeSalaryAvePerYr + dividend) / 12) * 113.25 + " per month.");
                         break;
                     default:
                         System.out.println("There is no such Title exists!!!");
@@ -218,13 +225,13 @@ public class GeneralHR extends Department implements HandleTask {
             if (country.equals("1")) {
                 switch (title) {
                     case "Senior Officer":
-                        System.out.println("The Senior Officer got paid $" + (fullTimeSalaryAvePerYr / 12) / 2 + " bi-weekly.");
+                        System.out.println("The Senior Officer got paid $" + (fullTimeSalaryGenAvePerYr / 12) / 2 + " bi-weekly.");
                         break;
                     case "Junior Officer":
-                        System.out.println("The Junior Officer got paid $" + (fullTimeSalaryAvePerYr / 12) / 2 + " bi-weekly.");
+                        System.out.println("The Junior Officer got paid $" + (fullTimeSalaryGenAvePerYr / 12) / 2 + " bi-weekly.");
                         break;
                     case "General Employee":
-                        System.out.println("The General Employee got paid $" + (fullTimeSalaryAvePerYr / 12) / 2 + " bi-weekly.");
+                        System.out.println("The General Employee got paid $" + (fullTimeSalaryGenAvePerYr / 12) / 2 + " bi-weekly.");
                         break;
                     case "Internship":
                         System.out.println("The Internship got paid $" + baseSalaryPerHr + " per hour");
@@ -239,13 +246,13 @@ public class GeneralHR extends Department implements HandleTask {
             else if (country.equals("2")) {
                 switch (title) {
                     case "Senior Officer":
-                        System.out.println("The Senior Officer got paid $" + ((fullTimeSalaryAvePerYr / 12) / 2) * 1.31 + " bi-weekly.");
+                        System.out.println("The Senior Officer got paid $" + ((fullTimeSalaryGenAvePerYr / 12) / 2) * 1.31 + " bi-weekly.");
                         break;
                     case "Junior Officer":
-                        System.out.println("The Junior Officer got paid $" + ((fullTimeSalaryAvePerYr / 12) / 2) * 1.31 + " bi-weekly.");
+                        System.out.println("The Junior Officer got paid $" + ((fullTimeSalaryGenAvePerYr / 12) / 2) * 1.31 + " bi-weekly.");
                         break;
                     case "General Employee":
-                        System.out.println("The General Employee got paid $" + ((fullTimeSalaryAvePerYr / 12) / 2) * 1.31 + " bi-weekly.");
+                        System.out.println("The General Employee got paid $" + ((fullTimeSalaryGenAvePerYr / 12) / 2) * 1.31 + " bi-weekly.");
                         break;
                     case "Internship":
                         System.out.println("The Internship got paid $" + Math.round(baseSalaryPerHr * 1.31) + " per hour");
@@ -260,13 +267,13 @@ public class GeneralHR extends Department implements HandleTask {
             else if (country.equals("3")) {
                 switch (title) {
                     case "Senior Officer":
-                        System.out.println("The Senior Officer got paid ¥" + ((fullTimeSalaryAvePerYr / 12) / 2) * 113.25 + " bi-weekly.");
+                        System.out.println("The Senior Officer got paid ¥" + ((fullTimeSalaryGenAvePerYr / 12) / 2) * 113.25 + " bi-weekly.");
                         break;
                     case "Junior Officer":
-                        System.out.println("The Junior Officer got paid ¥" + ((fullTimeSalaryAvePerYr / 12) / 2) * 113.25 + " bi-weekly.");
+                        System.out.println("The Junior Officer got paid ¥" + ((fullTimeSalaryGenAvePerYr / 12) / 2) * 113.25 + " bi-weekly.");
                         break;
                     case "General Employee":
-                        System.out.println("The General Employee got paid ¥" + ((fullTimeSalaryAvePerYr / 12) / 2) * 113.25 + " bi-weekly.");
+                        System.out.println("The General Employee got paid ¥" + ((fullTimeSalaryGenAvePerYr / 12) / 2) * 113.25 + " bi-weekly.");
                         break;
                     case "Internship":
                         System.out.println("The Internship got paid ¥" + Math.round(baseSalaryPerHr * 113.25) + " per hour");

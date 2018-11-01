@@ -3,7 +3,7 @@ package HR;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class CreateEmployee {
+public class GeneralSystem {
 
     // instance variable countryNumber
     private int countryNumber;
@@ -274,7 +274,7 @@ public class CreateEmployee {
      * */
     private static void printStatus() {
 
-        CreateEmployee employee = new CreateEmployee();
+        GeneralSystem employee = new GeneralSystem();
         employee.setCountryNumber(selectCountry());
 
         if (employee.getCountryNumber() == 1) {
