@@ -38,6 +38,4 @@ public class WorkHandle {
         list.add(newEmployee2);
         System.out.println(list);
     }
-
-
 }

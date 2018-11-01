@@ -7,7 +7,6 @@ public class CreateEmployee {
 
     // instance variable countryNumber
     private int countryNumber;
-    private String country;
 
     /**
      * @param: None
@@ -18,12 +17,16 @@ public class CreateEmployee {
 
         // store employees' information in ArrayList
         ArrayList<Employee> employees = new ArrayList<>();
+        // store customer' information in ArrayList
+        ArrayList<Customer> customers = new ArrayList<>();
+        // store vendor' information in ArrayList
+        ArrayList<Vendor> vendors = new ArrayList<>();
         boolean done = false;
 
         Scanner input = new Scanner(System.in);
         selectCountry();
 
-        // option for choose to create or display employee information
+        // option for choose to create or display employees, customers, vendors information
         while (!done) {
 
             System.out.println("=====================================================\n" +
@@ -34,7 +37,11 @@ public class CreateEmployee {
                                "4. Display information of Human Resource for each country\n" +
                                "5. Display employee's salary by title for each country\n" +
                                "6. Display employee expenses\n" +
-                               "7. Exit Human Resource System!\n" +
+                               "7. Add customer\n" +
+                               "8. Track the customer's information\n" +
+                               "9. Add vendor\n" +
+                               "10. Track the Vendor's information\n" +
+                               "11. Exit Human Resource System!\n" +
                                "======================================================");
 
             int selection;
@@ -49,8 +56,8 @@ public class CreateEmployee {
             }
 
             // if out of the range of option, return wrong choose
-            if (selection < 1 || selection > 7) {
-                System.out.println("\nPlease enter the correct option number within [1 ~ 7]:");
+            if (selection < 1 || selection > 11) {
+                System.out.println("\nPlease enter the correct option number within [1 ~ 11]:");
             }
 
 
@@ -120,6 +127,7 @@ public class CreateEmployee {
             else if (selection == 4) {
                 printStatus();
             }
+            // option 5: print salary for each employee by title of each country
             else if (selection == 5) {
                 System.out.println("Please enter number of the country to search:\n1. USA\n2. Canada\n3. Japan");
                 String country = input.next();
@@ -133,14 +141,37 @@ public class CreateEmployee {
                 String title = input1.nextLine();
                 GeneralHR.getSalary(title, country, level);
             }
+            // option 6: print the employee expense coverage standard
             else if (selection == 6) {
                 System.out.println("Please select the number of expenses coverage percentage:\n1. Business lunch or dinner" +
                                    "\n2. Office materials\n3. Travel\n4. International Travel");
                 int num = input.nextInt();
                 GeneralHR.expenseCoverage(num);
             }
-            // option 5: exit the system
+            // option 7: add customer information
             else if (selection == 7) {
+                addCustomer(customers);
+            }
+            // option 8: track customer information
+            else if (selection == 8) {
+                System.out.println("Please enter the customer id to search");
+                int id = input.nextInt();
+                trackCustomerInfor(customers, id);
+            }
+            // option 9: add vendor
+            else if (selection == 9) {
+                addVendor(vendors);
+            }
+            // option 10: track vendor information
+            else if (selection == 10) {
+                System.out.println("Please enter the vendor id to search");
+                int id = input.nextInt();
+                System.out.println("Please enter today data");
+                int day = input.nextInt();
+                trackVendorInfor(vendors, id, day);
+            }
+            // option 5: exit the system
+            else if (selection == 11) {
                 System.out.println("Exit the Human Resource System");
                 done = true;
             }
@@ -200,9 +231,9 @@ public class CreateEmployee {
     }
 
     /**
-     * @param: employees: ArrayList<Employee>, firstName: String
+     * @param: employees: ArrayList<Employee>, empID: String
      * @return: boolean
-     * check if the employee firstName exist or not
+     * check if the employee id exist or not
      * */
     private static boolean isIDFound(ArrayList<Employee> employees, String empID) {
 
@@ -216,9 +247,9 @@ public class CreateEmployee {
     }
 
     /**
-     * @param: employees: ArrayList<Employee>, firstName: String
+     * @param: employees: ArrayList<Employee>, empID: String
      * @return: None
-     * print employee information by designate first name
+     * print employee information by designate employee id
      * */
     private static void printEmployeeInfor(ArrayList<Employee> employees, String empID) {
 
@@ -272,6 +303,101 @@ public class CreateEmployee {
                     "Some new hired", "Terminated");
             japan.employStatus();
             System.out.println(japan);
+        }
+    }
+
+    /**
+     * @param: customers: ArrayList<Customer>
+     * @return: None
+     * add customers information in ArrayList
+     * */
+    private static void addCustomer(ArrayList<Customer> customers) {
+
+        Customer customer = Customer.getInstance();
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Please enter the name of the customer to store");
+        String name = input.nextLine();
+        customer.setName(name);
+        System.out.println("Please enter the product purchased by the customer to store");
+        String product = input.nextLine();
+        customer.setProduct(product);
+        System.out.println("Please enter the id of the customer to store");
+        int id = input.nextInt();
+        customer.setCustomerID(id);
+        System.out.println("Please enter the payment that paid by customer to store");
+        double payment = input.nextDouble();
+        customer.setPayment(payment);
+
+        customers.add(customer);
+    }
+
+    /**
+     * @param: customers: ArrayList<Customer>, id: int
+     * @return: None
+     * track customers' information by designate id number
+     * */
+    private static void trackCustomerInfor(ArrayList<Customer> customers, int id) {
+
+        boolean isFound = false;
+        for (Customer c : customers) {
+            if (c.getCustomerID() == id) {
+                c.printCustomerInfor();
+                isFound = true;
+                break;
+            }
+        }
+
+        if (!isFound) {
+            System.out.println("The customer with ID number " + id + " is not exist on the list.");
+        }
+    }
+
+    /**
+     * @param: vendors: ArrayList<Customer>
+     * @return: None
+     * add vendors information in ArrayList
+     * */
+    private static void addVendor(ArrayList<Vendor> vendors) {
+
+        Vendor vendor = Vendor.getInstance();
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Please enter the name of the vendor to store");
+        String name = input.nextLine();
+        vendor.setName(name);
+        System.out.println("Please enter the products purchased by the vendor to store");
+        String product = input.nextLine();
+        vendor.setProduct(product);
+        System.out.println("Please enter the id of the vendor to store");
+        int id = input.nextInt();
+        vendor.setVendorID(id);
+        System.out.println("Please enter the payment amount for vendor to store");
+        double payment = input.nextDouble();
+        vendor.setPayment(payment);
+
+        vendors.add(vendor);
+    }
+
+    /**
+     * @param: customers: ArrayList<Customer>, id: int, days: int
+     * @return: None
+     * track customers' information designate id number and days
+     * */
+    private static void trackVendorInfor(ArrayList<Vendor> vendors, int id, int days) {
+
+        boolean isFound = false;
+        for (Vendor v : vendors) {
+            if (v.getVendorID() == id) {
+                v.setRemainder(days);
+                v.printVendorInfor();
+                isFound = true;
+                break;
+            }
+        }
+
+        if (!isFound) {
+            System.out.println("The vendor with ID number " + id + " is not exist on the list.");
         }
     }
 }

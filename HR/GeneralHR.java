@@ -37,6 +37,11 @@ public class GeneralHR extends Department implements HandleTask {
         getStatus(status);
     }
 
+    /**
+     * @param: title: String, country: String, empLevel: String
+     * @return: None
+     * print salary for each employee by title of each country
+     * */
     public static void getSalary(String title, String country, String empLevel) {
 
         int fullTimeSalaryAvePerYr = 150000;
@@ -276,6 +281,11 @@ public class GeneralHR extends Department implements HandleTask {
         }
     }
 
+    /**
+     * @param: num: int
+     * @return: None
+     * print the employee expense coverage standard
+     * */
     protected static void expenseCoverage(int num) {
 
         int expenseCover = 100;
@@ -297,6 +307,11 @@ public class GeneralHR extends Department implements HandleTask {
         }
     }
 
+    /**
+     * @param: status: String
+     * @return: None
+     * get employee status
+     * */
     protected void getStatus(String status) {
 
         switch (status) {

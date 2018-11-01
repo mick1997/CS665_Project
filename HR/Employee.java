@@ -41,17 +41,6 @@ public class Employee implements EmployeeRole {
         this.department = builder.department;
     }
 
-    private static Employee instance = new Employee();
-
-    private Employee() {}
-
-    public static Employee getInstance() {
-        if (instance == null) {
-            return new Employee();
-        }
-        return instance;
-    }
-
     /**
      * @param: None
      * @return: firstName: String
@@ -171,7 +160,7 @@ public class Employee implements EmployeeRole {
 
     public static class UserBuilder {
 
-        // instance variable declare again for UserBuilder static inner class
+        // instance variable declare again for UserBuilder nest class
         private final String firstName;
         private final String lastName;
         private String ssn;
