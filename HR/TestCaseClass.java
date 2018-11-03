@@ -9,7 +9,7 @@ public class TestCaseClass {
     /**
      * @param: None
      * @return: a list of with Employee type
-     * */
+     */
     private static List<Employee> createList() {
 
         // store all employees' information in ArrayList
@@ -18,34 +18,49 @@ public class TestCaseClass {
         // Employee No 1
         Employee employee1 = new Employee.UserBuilder("Tom", "Franklin")
                 .ssn("123456789")
-                .age(25)
+                .age(50)
                 .address("10 New Street, MA Boston 02221")
                 .email("tom@gmail.com")
                 .gender("Male")
                 .phone("917233453")
                 .ethnicity("White")
+                .title("Chief Executive Officer")
+                .empID("001")
+                .description("The chairman of the company")
+                .supervisor(null)
+                .department("Executive Department")
                 .build();
 
         // Employee No 2
         Employee employee2 = new Employee.UserBuilder("Sue", "Smith")
                 .ssn("987654321")
-                .age(23)
+                .age(30)
                 .address("1 Old Post Street, MA Allston 02134")
                 .email("sue@gmail.com")
                 .gender("Female")
                 .phone("7322347861")
                 .ethnicity("White")
+                .title("Director")
+                .empID("010")
+                .description("The head of Human Resource")
+                .supervisor("Tom Franklin")
+                .department("Human Resource Department")
                 .build();
 
         // Employee No 3
         Employee employee3 = new Employee.UserBuilder("Peter", "Johnson")
                 .ssn("789654321")
-                .age(27)
+                .age(35)
                 .address("20 Water Road, MA Allston 02134")
                 .email("peter@gmail.com")
                 .gender("Male")
                 .phone("9172326754")
                 .ethnicity("American Indian")
+                .title("Director")
+                .empID("011")
+                .description("The head of Marketing Department")
+                .supervisor("Tom Franklin")
+                .department("Marketing Department")
                 .build();
 
         // Employee No 4
@@ -57,6 +72,11 @@ public class TestCaseClass {
                 .gender("Male")
                 .phone("9173244867")
                 .ethnicity("Asian")
+                .title("Senior Officer")
+                .empID("100")
+                .description("The senior employee of Human Resource")
+                .supervisor("Sue Smith")
+                .department("Human Resource Department")
                 .build();
 
         // Employee No 5
@@ -67,7 +87,28 @@ public class TestCaseClass {
                 .gender("Male")
                 .phone("7324567652")
                 .ethnicity("Asian")
+                .title("General Employee")
+                .empID("200")
+                .description("The General employee of Marketing Department")
+                .supervisor("Peter Johnson")
+                .department("Marketing Department")
                 .build();
+
+        // show employee salary
+        GeneralHR.getSalary(employee1.getEmployTitle(), "1", "1"); // country: USA, employee level: Management Employee Level
+        GeneralHR.getSalary(employee2.getEmployTitle(), "1", "1"); // country: USA, employee level: Management Employee Level
+        GeneralHR.getSalary(employee3.getEmployTitle(), "2", "1"); // country: Canada, employee level: Management Employee Level
+        GeneralHR.getSalary(employee4.getEmployTitle(), "1", "3"); // country: USA, employee level: Entry or regular Level Employee
+        GeneralHR.getSalary(employee5.getEmployTitle(), "2", "3"); // country: Canada, employee level: Entry or regular Level Employee
+        System.out.println();
+
+        // show employee expense coverage
+        GeneralHR.expenseCoverage(1);
+        GeneralHR.expenseCoverage(2);
+        GeneralHR.expenseCoverage(3);
+        GeneralHR.expenseCoverage(4);
+        GeneralHR.expenseCoverage(5);
+        System.out.println();
 
         // add to the list
         list.add(employee1);
@@ -81,9 +122,32 @@ public class TestCaseClass {
     /**
      * @param: None
      * @return: None
+     * print and store customer and vendor information
+     */
+    private static void testCase() {
+
+        Customer customer = Customer.getInstance();
+        customer.setName("Sue Mike");
+        customer.setCustomerID(123456);
+        customer.setProduct("tooth brush");
+        customer.setPayment(49.5);
+        customer.printCustomerInfor();
+
+        Vendor vendor = Vendor.getInstance();
+        vendor.setName("Michael Rich");
+        vendor.setVendorID(654321);
+        vendor.setProduct("Brush material");
+        vendor.setPayment(55);
+        vendor.setRemainder(8);
+        vendor.printVendorInfor();
+    }
+
+    /**
+     * @param: None
+     * @return: None
      * print the whole records of employees' information and situation of each region of the Human Resource
      * for using of hard code employee
-     * */
+     */
     public static void printRecords() {
 
         // create TestCaseClass object and print employee information such as Manager or Recruiter
@@ -111,6 +175,8 @@ public class TestCaseClass {
                 "The department is in charge of all employee in company", Location.Japan, 8,
                 "Some new hired", "Terminated");
         japan.employStatus();
-        System.out.println(japan);
+        System.out.println(japan + "\n");
+
+        testCase();
     }
 }

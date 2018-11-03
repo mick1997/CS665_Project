@@ -301,7 +301,7 @@ public class GeneralHR extends Department implements HandleAllTask {
                 System.out.println("The expense for business lunch or dinner covers " + expenseCover / 2 + "%.");
                 break;
             case 2:
-                System.out.println("The expense for office materials " + expenseCover / 2 + "%.");
+                System.out.println("The expense for office materials covers " + expenseCover / 2 + "%.");
                 break;
             case 3:
                 System.out.println("The expense for Travel covers " + expenseCover / 1.25 + "%.");

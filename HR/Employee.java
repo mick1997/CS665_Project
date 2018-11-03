@@ -310,7 +310,7 @@ public class Employee implements EmployeeRole {
     public String toString() {
         return String.format("\nEmployee:\nID: %s\ntitle: %s\nFirst name: %s\nLast name: %s\nSocial Security Number: %s\n" +
                              "Age: %s\ngender: %s\nPhone Number: %s\nAddress: %s\nEmail: %s\nethnicity: %s" + "" +
-                             "\nSupervisor: %s\nDescription: %s\nDepartment: %s",
+                             "\nSupervisor: %s\nDescription: %s\nDepartment: %s\n",
                              getEmployID(), getEmployTitle(), getFirstName(), getLastName(), getSsn(), getAge(),
                              getGender(), getPhone(), getAddress(), getEmail(), getEthnicity(), getSupervisor(),
                              description(), getDepartment());

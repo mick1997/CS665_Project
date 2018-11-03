@@ -132,12 +132,12 @@ public class GeneralSystem {
                 System.out.println("Please enter number of the country to search:\n1. USA\n2. Canada\n3. Japan");
                 String country = input.next();
                 System.out.println("Please enter number of the employee level to search:\n1. Management Employee Level\n2. Executive Employee Level\n3. Entry or regular Level Employee");
-                Scanner input1 = new Scanner(System.in);
-                String level = input1.nextLine();
+                String level = input.next();
                 System.out.println("Please enter the following title below to search:" +
                                    "\nManagement Employee Level: [Chief Executive Officer, President, Vice President, Director, Administrator, General Manager,  Manager]" +
                                    "\nExecutive Employee Level: [Chief Financial Officer, Chief Technical Officer, Chief Sales Officer, Chief Marketing Officer, Chief HR Officer, Chief Business Officer, Chief Quality Officer]" +
                                    "\nEntry or regular Level Employee: [Senior Officer, Junior Officer, General Employee, Internship, Contract]");
+                Scanner input1 = new Scanner(System.in);
                 String title = input1.nextLine();
                 GeneralHR.getSalary(title, country, level);
             }
