@@ -37,7 +37,6 @@ public class GeneralHR extends Department implements HandleAllTask {
         getStatus(status);
     }
 
-    // implements but, no use
     @Override
     public double getPayment() {
         return 0;

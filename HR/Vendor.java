@@ -1,6 +1,6 @@
 package HR;
 
-public class Vendor implements HandleAllTask {
+public class Vendor {
 
     // instance variable: name, vendorID, product, payment
     private String name;
@@ -82,21 +82,10 @@ public class Vendor implements HandleAllTask {
         this.payment = payment;
     }
 
-    // implements but, no use
-    @Override
-    public String newsAnnounce() {
-        return null;
-    }
-
-    // implements, but, no use
-    @Override
-    public void employStatus() {}
-
     /**
      * @param: None
      * @return: double
      * */
-    @Override
     public double getPayment() {
         return payment;
     }
