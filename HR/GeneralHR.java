@@ -5,7 +5,7 @@ import java.util.List;
 
 public class GeneralHR extends Department implements HandleTask {
 
-    // instance variable news, status
+    // instance variable: news, status
     private String news;
     private String status;
 
@@ -348,6 +348,6 @@ public class GeneralHR extends Department implements HandleTask {
      * */
     @Override
     public String toString() {
-        return String.format("The news Announcement for today is: %s\n", showNewsAndMessages()) + super.toString();
+        return "The news Announcement for today is: " + showNewsAndMessages() + super.toString();
     }
 }

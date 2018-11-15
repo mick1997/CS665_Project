@@ -7,22 +7,22 @@ import java.util.Scanner;
 
 public class GeneralSystem {
 
-    public static void main(String[] args) {
-        // print the whole records (for test case use)
-        //TestCaseClass.printRecords();
-        // create employee information (by using Human Resource System)
-        createEmployee();
-    }
-
     // instance variable countryNumber
     private int countryNumber;
+
+    public static void main(String[] args) {
+        // print the whole records (for test case use)
+        TestCaseClass.printRecords();
+        // create employee information (by using Human Resource System)
+        //create();
+    }
 
     /**
      * @param: None
      * @return: None
      * for using of Human Resource System
      * */
-    private static void createEmployee() {
+    private static void create() {
 
         // store employees' information in ArrayList
         ArrayList<Employee> employees = new ArrayList<>();
@@ -47,7 +47,7 @@ public class GeneralSystem {
         Scanner input1 = new Scanner(System.in);
         selectCountry();
 
-        // option for choose to create or display employees, customers, vendors information
+        // option for choose to create or display employees, customers, vendors, product, product, service, information
         while (!done) {
 
             System.out.println("=====================================================\n" +
@@ -84,10 +84,9 @@ public class GeneralSystem {
             }
 
             // if out of the range of option, return wrong choose
-            if (selection < 1 || selection > 14) {
-                System.out.println("\nPlease enter the correct option number within [1 ~ 14]:");
+            if (selection < 1 || selection > 18) {
+                System.out.println("\nPlease enter the correct option number within [1 ~ 18]:");
             }
-
 
             // option 1: create employee status
             if (selection == 1) {
@@ -196,9 +195,11 @@ public class GeneralSystem {
                 int day = input.nextInt();
                 trackVendorInfor(vendors, id, day);
             }
+            // option 11: print marketing department information
             else if (selection == 11) {
                 printMarketing();
             }
+            // option 12: pick the option to add product or service
             else if (selection == 12) {
                 System.out.println("Pick the option that wants to add\n1. Product\n2. Service");
                 int num = input.nextInt();
@@ -209,6 +210,7 @@ public class GeneralSystem {
                     addService(services);
                 }
             }
+            // option 13: add the most good advertising in list
             else if (selection == 13) {
                 System.out.println("Please enter the title of the advertising");
                 String title = input1.nextLine();
@@ -216,6 +218,7 @@ public class GeneralSystem {
                 int level = input.nextInt();
                 GeneralMarketing.addAdsCampaign(systemList1, systemList2, systemList3, level, title);
             }
+            // option 14: show the most good advertising
             else if (selection == 14) {
                 System.out.println("The most best advertising");
                 System.out.println(systemList1);
@@ -224,8 +227,9 @@ public class GeneralSystem {
                 System.out.println("The average good advertising");
                 System.out.println(systemList3);
             }
+            // option 15: change the price for product or service
             else if (selection == 15) {
-                System.out.println("Please pick the option to change\n1. products\n2. service");
+                System.out.println("Please pick the option to change\n1. product\n2. service");
                 int op = input.nextInt();
                 if (op == 1) {
                     System.out.println("Please enter the id number to search");
@@ -242,6 +246,7 @@ public class GeneralSystem {
                     GeneralMarketing.serviceChangedPrice(services, id, price);
                 }
             }
+            // option 16: show results after edit product and service
             else if (selection == 16) {
                 System.out.println("Please pick the option to show\n1. products\n2. service");
                 int op = input.nextInt();
@@ -252,12 +257,13 @@ public class GeneralSystem {
                     System.out.println(services);
                 }
             }
+            // option 17: check promotion
             else if (selection == 17) {
                 System.out.println("Please enter the option to check promotion\n1. Holiday\n2. Company promotion\n3. Company coupons\n4. Regular price");
                 int op = input.nextInt();
                 GeneralMarketing.promPriceAndCoupon(op);
             }
-            // option 5: exit the system
+            // option 18: exit the system
             else if (selection == 18) {
                 System.out.println("Exit the Human Resource System");
                 done = true;
@@ -522,6 +528,11 @@ public class GeneralSystem {
         System.out.println(list);
     }
 
+    /**
+     * @param: products: ArrayList<Product>
+     * @return: None
+     * add product to the ArrayList for storing
+     * */
     private static void addProduct(ArrayList<Product> products) {
 
         Scanner input = new Scanner(System.in);
@@ -539,6 +550,11 @@ public class GeneralSystem {
         products.add(product);
     }
 
+    /**
+     * @param: services: ArrayList<Service>
+     * @return: None
+     * add service to the ArrayList for storing
+     * */
     private static void addService(ArrayList<Service> services) {
 
         Scanner input = new Scanner(System.in);
@@ -556,6 +572,11 @@ public class GeneralSystem {
         services.add(service);
     }
 
+    /**
+     * @param: None
+     * @return: None
+     * show Marketing information for each sites
+     * */
     private static void printMarketing() {
 
         GeneralSystem employee = new GeneralSystem();

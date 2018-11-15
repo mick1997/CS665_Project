@@ -5,6 +5,7 @@ import java.util.List;
 
 public class GeneralMarketing extends Department implements HandleTask {
 
+    // instance variable: message
     private String message;
 
     /**
@@ -13,18 +14,28 @@ public class GeneralMarketing extends Department implements HandleTask {
      */
     public GeneralMarketing(String departName, String departType, String description, Location location, String message) {
         super(departName, departType, description, location);
-
         this.message = message;
     }
 
+    /**
+     * @param: None
+     * @return: List<String>
+     * return the list of social media message
+     * */
     @Override
     public List<String> showNewsAndMessages() {
         return generateMessage(message);
     }
 
+    // no use
     @Override
     public void employStatus() {}
 
+    /**
+     * @param: message: String
+     * @return: List<String>
+     * generate and store social media message in list
+     * */
     private List<String> generateMessage(String message) {
 
         List<String> messageList = new ArrayList<>();
@@ -32,6 +43,11 @@ public class GeneralMarketing extends Department implements HandleTask {
         return messageList;
     }
 
+    /**
+     * @param: products: List<Product>, id: String, price: int
+     * @return: None
+     * reset price for products
+     * */
     public static void goodsChangedPrice(List<Product> products, String id, int price) {
 
         for (Product product : products) {
@@ -41,6 +57,11 @@ public class GeneralMarketing extends Department implements HandleTask {
         }
     }
 
+    /**
+     * @param: services: List<Service>, id: String, price: int
+     * @return: None
+     * reset price for services
+     * */
     public static void serviceChangedPrice(List<Service> services, String id, int price) {
 
         for (Service service : services) {
@@ -50,6 +71,11 @@ public class GeneralMarketing extends Department implements HandleTask {
         }
     }
 
+    /**
+     * @param: systemList1: List<String>, systemList2: List<String>, systemList3: List<String>, adsCampaignLevel: int, adsTitle: String
+     * @return: None
+     * add ads campaign by level
+     * */
     public static void addAdsCampaign(List<String> systemList1, List<String> systemList2, List<String> systemList3, int adsCampaignLevel, String adsTitle) {
 
         if (adsCampaignLevel == 1) {
@@ -66,6 +92,11 @@ public class GeneralMarketing extends Department implements HandleTask {
         }
     }
 
+    /**
+     * @param: promOption: int
+     * @return: None
+     * display promotion information by number choose
+     * */
     public static void promPriceAndCoupon(int promOption) {
 
         switch (promOption) {
@@ -83,6 +114,11 @@ public class GeneralMarketing extends Department implements HandleTask {
         }
     }
 
+    /**
+     * @param: None
+     * @return: None
+     * print Marketing department information and social media message
+     * */
     @Override
     public String toString() {
         return "The social media message is: \n" + showNewsAndMessages() + "\n" + super.toString();

@@ -126,6 +126,7 @@ public class TestCaseClass {
      */
     private static void testCase() {
 
+        // create customer
         Customer customer = Customer.getInstance();
         customer.setName("Sue Mike");
         customer.setCustomerID(123456);
@@ -133,6 +134,7 @@ public class TestCaseClass {
         customer.setPayment(49.5);
         customer.printCustomerInfor();
 
+        // create vendor
         Vendor vendor = Vendor.getInstance();
         vendor.setName("Michael Rich");
         vendor.setVendorID(654321);
@@ -140,6 +142,39 @@ public class TestCaseClass {
         vendor.setPayment(55);
         vendor.setRemainder(8);
         vendor.printVendorInfor();
+
+        // create product add in list
+        List<Product> products = new ArrayList<>();
+        Product product = new Product("toot brush", "123", 99, "This tooth brush is quip most advance tooth brush");
+        products.add(product);
+        GeneralMarketing.goodsChangedPrice(products, "123", 50);
+        System.out.println(products + "\n");
+
+        // create service add in list
+        List<Service> services = new ArrayList<>();
+        Service service = new Service("After purchased service", "001", 0, "The service is free for customer who purchased tooth brush");
+        services.add(service);
+        GeneralMarketing.serviceChangedPrice(services, "001", 0);
+        System.out.println(services + "\n");
+
+        // generate ads by level and store in different list
+        ArrayList<String> systemList1 = new ArrayList<>();
+        ArrayList<String> systemList2 = new ArrayList<>();
+        ArrayList<String> systemList3 = new ArrayList<>();
+        GeneralMarketing.addAdsCampaign(systemList1, systemList2, systemList3, 1, "Tooth Brush");
+        GeneralMarketing.addAdsCampaign(systemList1, systemList2, systemList3, 2, "Brush");
+        GeneralMarketing.addAdsCampaign(systemList1, systemList2, systemList3, 3, "Packaging");
+        GeneralMarketing.addAdsCampaign(systemList1, systemList2, systemList3, 4, "Toothpaste");
+        System.out.println(systemList1);
+        System.out.println(systemList2);
+        System.out.println(systemList3);
+        System.out.println();
+
+        // generate promotion coupons
+        GeneralMarketing.promPriceAndCoupon(1);
+        GeneralMarketing.promPriceAndCoupon(2);
+        GeneralMarketing.promPriceAndCoupon(3);
+        GeneralMarketing.promPriceAndCoupon(4);
     }
 
     /**
@@ -153,6 +188,7 @@ public class TestCaseClass {
         // create TestCaseClass object and print employee information such as Manager or Recruiter
         System.out.println(TestCaseClass.createList());
 
+        // Human Resource Department
         // create USA(head quarter) object that prints employee situation in head quarter
         System.out.println("\nThe employee getStatus for USA(head Quarter):\n");
         GeneralHR hq = new GeneralHR("Human Recourse", "Take care of employees",
@@ -177,6 +213,26 @@ public class TestCaseClass {
         japan.employStatus();
         System.out.println(japan + "\n");
 
+        // Marketing department
+        //create head quarter object that prints Marketing Department in head quarter
+        System.out.println("\nThe Marketing Department for USA (head Quarter):\n");
+        GeneralMarketing hq1 = new GeneralMarketing("Marketing", "Manage advertising and price",
+                "The department is in charge of all Marketing globally", Location.USA, "A good day of work");
+        System.out.println(hq1);
+
+        // create Canada site object that prints Marketing Department in Canada site
+        System.out.println("\nThe Marketing Department for Canada:\n");
+        GeneralMarketing canada1 = new GeneralMarketing("Marketing", "Manage advertising and price",
+                "The department is in charge of Marketing in Canada", Location.Canada, "ways to goes on");
+        System.out.println(canada1);
+
+        // create Europe site object that prints Marketing Department in Europe site
+        System.out.println("\nThe Marketing Department for Japan:\n");
+        GeneralMarketing japan1 = new GeneralMarketing("Marketing", "Manage advertising and price",
+                "The department is in charge of Marketing in Japan", Location.Japan, "better days every day");
+        System.out.println(japan1);
+
+        System.out.println();
         testCase();
     }
 }
