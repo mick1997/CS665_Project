@@ -1,39 +1,90 @@
 package HR;
 
-public class GeneralMarketing extends Department implements HandleAllTask {
+import java.util.ArrayList;
+import java.util.List;
+
+public class GeneralMarketing extends Department implements HandleTask {
 
     private String message;
-    private String Campaige;
 
     /**
-     * @param: departName: String, departType: String, description: String, location: Location, timeDurationWork: int,
-     * public Department constructor
+     * @param: departName: String, departType: String, description: String, location: Location, message: String,
+     * public GeneralMarketing constructor
      */
-    public GeneralMarketing(String departName, String departType, String description, Location location,
-                            int timeDurationWork, String message) {
-        super(departName, departType, description, location, timeDurationWork);
+    public GeneralMarketing(String departName, String departType, String description, Location location, String message) {
+        super(departName, departType, description, location);
+
         this.message = message;
     }
 
     @Override
-    public String newsAnnounce() {
-        String socialMedia1 = "FaceBook";
-        String socialMedia2 = "Twitter";
-        String socialMedia3 = "SnapChat";
-        String socialMedia4 = "Instagram";
-        return message; 
+    public List<String> showNewsAndMessages() {
+        return generateMessage(message);
     }
 
     @Override
     public void employStatus() {}
 
-    @Override
-    public double getPayment() {
-        return 0;
+    private List<String> generateMessage(String message) {
+
+        List<String> messageList = new ArrayList<>();
+        messageList.add(message);
+        return messageList;
     }
 
-//    public int adsCampaign() {
-//
-//
-//    }
+    public static void goodsChangedPrice(List<Product> products, String id, int price) {
+
+        for (Product product : products) {
+            if (product.getProductID().equals(id)) {
+                product.setPrice(price);
+            }
+        }
+    }
+
+    public static void serviceChangedPrice(List<Service> services, String id, int price) {
+
+        for (Service service : services) {
+            if (service.getId().equals(id)) {
+                service.setPrice(price);
+            }
+        }
+    }
+
+    public static void addAdsCampaign(List<String> systemList1, List<String> systemList2, List<String> systemList3, int adsCampaignLevel, String adsTitle) {
+
+        if (adsCampaignLevel == 1) {
+            systemList1.add(adsTitle);
+        }
+        else if (adsCampaignLevel == 2) {
+            systemList2.add(adsTitle);
+        }
+        else if (adsCampaignLevel == 3) {
+            systemList3.add(adsTitle);
+        }
+        else {
+            System.out.println("The advertising is not good enough to be campaign!");
+        }
+    }
+
+    public static void promPriceAndCoupon(int promOption) {
+
+        switch (promOption) {
+            case 1:
+                System.out.println("Holiday, 50% off entire purchased");
+                break;
+            case 2:
+                System.out.println("Company promotion, 60% off entire purchased");
+                break;
+            case 3:
+                System.out.println("Company promotion coupons send out");
+                break;
+            default:
+                System.out.println("Regular price, no promotion come out yet!");
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "The social media message is: \n" + showNewsAndMessages() + "\n" + super.toString();
+    }
 }

@@ -2,32 +2,22 @@ package HR;
 
 public abstract class Department {
 
-    // instance variable: departName: String, departType: String, description: String, location: Location, timeDurationWork: int
+    // instance variable: departName: String, departType: String, description: String, location: Location
     private String departName;
     private String departType;
     private String description;
     private Location location;
-    private int timeDurationWork;
 
     /**
-     * @param: departName: String, departType: String, description: String, location: Location, timeDurationWork: int,
+     * @param: departName: String, departType: String, description: String, location: Location
      * public Department constructor
      * */
-    public Department(String departName, String departType, String description, Location location, int timeDurationWork) {
+    public Department(String departName, String departType, String description, Location location) {
 
         this.departName = departName;
         this.departType = departType;
         this.description = description;
         this.location = location;
-
-        // if employee work enough 8 hours, print appropriate message, else print warning message
-        if (timeDurationWork >= 8) {
-            this.timeDurationWork = timeDurationWork;
-            System.out.println("All employees have worked " + this.timeDurationWork + " hours already!");
-        }
-        else {
-            System.out.println("some employees have not worked enough time yet.");
-        }
     }
 
     /**

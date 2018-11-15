@@ -1,9 +1,18 @@
 package HR;
 
+
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class GeneralSystem {
+
+    public static void main(String[] args) {
+        // print the whole records (for test case use)
+        //TestCaseClass.printRecords();
+        // create employee information (by using Human Resource System)
+        createEmployee();
+    }
 
     // instance variable countryNumber
     private int countryNumber;
@@ -13,7 +22,7 @@ public class GeneralSystem {
      * @return: None
      * for using of Human Resource System
      * */
-    public static void createEmployee() {
+    private static void createEmployee() {
 
         // store employees' information in ArrayList
         ArrayList<Employee> employees = new ArrayList<>();
@@ -21,9 +30,21 @@ public class GeneralSystem {
         ArrayList<Customer> customers = new ArrayList<>();
         // store vendor' information in ArrayList
         ArrayList<Vendor> vendors = new ArrayList<>();
+        // store product' information in ArrayList
+        ArrayList<Product> products = new ArrayList<>();
+        // store service' information in ArrayList
+        ArrayList<Service> services = new ArrayList<>();
+        // store best ads in system1 in ArrayList
+        ArrayList<String> systemList1 = new ArrayList<>();
+        // store at least best ads in system2 in ArrayList
+        ArrayList<String> systemList2 = new ArrayList<>();
+        // store average ads in system3 in ArrayList
+        ArrayList<String> systemList3 = new ArrayList<>();
+
         boolean done = false;
 
         Scanner input = new Scanner(System.in);
+        Scanner input1 = new Scanner(System.in);
         selectCountry();
 
         // option for choose to create or display employees, customers, vendors information
@@ -41,7 +62,14 @@ public class GeneralSystem {
                                "8. Track the customer's information\n" +
                                "9. Add vendor\n" +
                                "10. Track the Vendor's information\n" +
-                               "11. Exit Human Resource System!\n" +
+                               "11. Display information of Marketing for each country\n" +
+                               "12. Add Products or Services for storing\n" +
+                               "13. Add campaign advertising for storing\n" +
+                               "14. Show advertising Campaign\n" +
+                               "15. Change the price for product or service\n" +
+                               "16. Show product and service\n" +
+                               "17. Show Company promotion and coupons information\n" +
+                               "18. Exit Human Resource System!\n" +
                                "======================================================");
 
             int selection;
@@ -56,8 +84,8 @@ public class GeneralSystem {
             }
 
             // if out of the range of option, return wrong choose
-            if (selection < 1 || selection > 11) {
-                System.out.println("\nPlease enter the correct option number within [1 ~ 11]:");
+            if (selection < 1 || selection > 14) {
+                System.out.println("\nPlease enter the correct option number within [1 ~ 14]:");
             }
 
 
@@ -79,7 +107,6 @@ public class GeneralSystem {
                 System.out.println("Please enter the age");
                 int age = input.nextInt();
                 System.out.println("Please enter the address:");
-                Scanner input1 = new Scanner(System.in);
                 String address = input1.nextLine();
                 System.out.println("Please enter the email:");
                 String email = input1.nextLine();
@@ -115,7 +142,7 @@ public class GeneralSystem {
             }
             // option 2: print new Hired employees
             else if (selection == 2) {
-                WorkHandle.getHired();
+                getHired();
             }
             // option 3: print select employee by designate first name
             else if (selection == 3) {
@@ -137,7 +164,6 @@ public class GeneralSystem {
                                    "\nManagement Employee Level: [Chief Executive Officer, President, Vice President, Director, Administrator, General Manager,  Manager]" +
                                    "\nExecutive Employee Level: [Chief Financial Officer, Chief Technical Officer, Chief Sales Officer, Chief Marketing Officer, Chief HR Officer, Chief Business Officer, Chief Quality Officer]" +
                                    "\nEntry or regular Level Employee: [Senior Officer, Junior Officer, General Employee, Internship, Contract]");
-                Scanner input1 = new Scanner(System.in);
                 String title = input1.nextLine();
                 GeneralHR.getSalary(title, country, level);
             }
@@ -170,8 +196,69 @@ public class GeneralSystem {
                 int day = input.nextInt();
                 trackVendorInfor(vendors, id, day);
             }
-            // option 5: exit the system
             else if (selection == 11) {
+                printMarketing();
+            }
+            else if (selection == 12) {
+                System.out.println("Pick the option that wants to add\n1. Product\n2. Service");
+                int num = input.nextInt();
+                if (num == 1) {
+                    addProduct(products);
+                }
+                else {
+                    addService(services);
+                }
+            }
+            else if (selection == 13) {
+                System.out.println("Please enter the title of the advertising");
+                String title = input1.nextLine();
+                System.out.println("Please enter the advertising level(by number)\n1. Most good advertising\n2. Least good advertising\n3. Average advertising");
+                int level = input.nextInt();
+                GeneralMarketing.addAdsCampaign(systemList1, systemList2, systemList3, level, title);
+            }
+            else if (selection == 14) {
+                System.out.println("The most best advertising");
+                System.out.println(systemList1);
+                System.out.println("The least good advertising");
+                System.out.println(systemList2);
+                System.out.println("The average good advertising");
+                System.out.println(systemList3);
+            }
+            else if (selection == 15) {
+                System.out.println("Please pick the option to change\n1. products\n2. service");
+                int op = input.nextInt();
+                if (op == 1) {
+                    System.out.println("Please enter the id number to search");
+                    String id = input1.nextLine();
+                    System.out.println("Please enter the price that wants to change");
+                    int price = input.nextInt();
+                    GeneralMarketing.goodsChangedPrice(products, id, price);
+                }
+                else {
+                    System.out.println("Please enter the id number to search");
+                    String id = input1.nextLine();
+                    System.out.println("Please enter the price that wants to change");
+                    int price = input.nextInt();
+                    GeneralMarketing.serviceChangedPrice(services, id, price);
+                }
+            }
+            else if (selection == 16) {
+                System.out.println("Please pick the option to show\n1. products\n2. service");
+                int op = input.nextInt();
+                if (op == 1) {
+                    System.out.println(products);
+                }
+                else {
+                    System.out.println(services);
+                }
+            }
+            else if (selection == 17) {
+                System.out.println("Please enter the option to check promotion\n1. Holiday\n2. Company promotion\n3. Company coupons\n4. Regular price");
+                int op = input.nextInt();
+                GeneralMarketing.promPriceAndCoupon(op);
+            }
+            // option 5: exit the system
+            else if (selection == 18) {
                 System.out.println("Exit the Human Resource System");
                 done = true;
             }
@@ -398,6 +485,102 @@ public class GeneralSystem {
 
         if (!isFound) {
             System.out.println("The vendor with ID number " + id + " is not exist on the list.");
+        }
+    }
+
+    /**
+     * @param: None
+     * @return: None
+     * print new hired employees as a list
+     * */
+    private static void getHired() {
+
+        List<Employee> list = new ArrayList<>();
+
+        System.out.println("New Hired Employee!!!");
+        Employee newEmployee1 = new Employee.UserBuilder("Jerry", "Tong")
+                .ssn("9876123645")
+                .age(23)
+                .gender("Male")
+                .address("12 Pound Rd, MA Allston 02134")
+                .email("jerry@gmail.com")
+                .phone("7322273787")
+                .ethnicity("Asian")
+                .build();
+
+        Employee newEmployee2 = new Employee.UserBuilder("Seam", "Fame")
+                .ssn("213546987")
+                .age(24)
+                .gender("Male")
+                .address("20 Pound Rd, MA Allston 02134")
+                .email("seam@gmail.com")
+                .phone("9173432876")
+                .ethnicity("American Indian")
+                .build();
+        list.add(newEmployee1);
+        list.add(newEmployee2);
+        System.out.println(list);
+    }
+
+    private static void addProduct(ArrayList<Product> products) {
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Please enter the product name:");
+        String name = input.nextLine();
+        System.out.println("Please enter the id");
+        String id = input.nextLine();
+        System.out.println("Please enter the product description");
+        String des = input.nextLine();
+        System.out.println("Please enter the price");
+        int price = input.nextInt();
+
+        Product product = new Product(name, id, price, des);
+        products.add(product);
+    }
+
+    private static void addService(ArrayList<Service> services) {
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Please enter the service name:");
+        String name = input.nextLine();
+        System.out.println("Please enter the id");
+        String id = input.nextLine();
+        System.out.println("Please enter the service description");
+        String des = input.nextLine();
+        System.out.println("Please enter the price");
+        int price = input.nextInt();
+
+        Service service = new Service(name, id, price, des);
+        services.add(service);
+    }
+
+    private static void printMarketing() {
+
+        GeneralSystem employee = new GeneralSystem();
+        employee.setCountryNumber(selectCountry());
+
+        if (employee.getCountryNumber() == 1) {
+            //create head quarter object that prints Marketing Department in head quarter
+            System.out.println("\nThe Marketing Department for USA (head Quarter):\n");
+            GeneralMarketing hq = new GeneralMarketing("Marketing", "Manage advertising and price",
+                    "The department is in charge of all Marketing globally", Location.USA, "A good day of work");
+            System.out.println(hq);
+        }
+        else if (employee.getCountryNumber() == 2) {
+            // create Canada site object that prints Marketing Department in Canada site
+            System.out.println("\nThe Marketing Department for Canada:\n");
+            GeneralMarketing canada = new GeneralMarketing("Marketing", "Manage advertising and price",
+                    "The department is in charge of Marketing in Canada", Location.Canada, "ways to goes on");
+            System.out.println(canada);
+        }
+        else if (employee.getCountryNumber() == 3) {
+            // create Europe site object that prints Marketing Department in Europe site
+            System.out.println("\nThe Marketing Department for Japan:\n");
+            GeneralMarketing japan = new GeneralMarketing("Marketing", "Manage advertising and price",
+                    "The department is in charge of Marketing in Japan", Location.Japan, "better days every day");
+            System.out.println(japan);
         }
     }
 }

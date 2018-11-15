@@ -1,6 +1,9 @@
 package HR;
 
-public class GeneralHR extends Department implements HandleAllTask {
+import java.util.ArrayList;
+import java.util.List;
+
+public class GeneralHR extends Department implements HandleTask {
 
     // instance variable news, status
     private String news;
@@ -13,9 +16,17 @@ public class GeneralHR extends Department implements HandleAllTask {
      * */
     public GeneralHR(String departName, String departType, String description, Location location, int timeDurationWork,
                      String news, String status) {
-        super(departName, departType, description, location, timeDurationWork);
+        super(departName, departType, description, location);
         this.news = news;
         this.status = status;
+
+        // if employee work enough 8 hours, print appropriate message, else print warning message
+        if (timeDurationWork >= 8) {
+            System.out.println("All employees have worked " + timeDurationWork + " hours already!");
+        }
+        else {
+            System.out.println("some employees have not worked enough time yet.");
+        }
     }
 
     /**
@@ -23,8 +34,10 @@ public class GeneralHR extends Department implements HandleAllTask {
      * @return: news: String
      * */
     @Override
-    public String newsAnnounce() {
-        return news;
+    public List<String> showNewsAndMessages() {
+        List<String> newsList = new ArrayList<>();
+        newsList.add(news);
+        return newsList;
     }
 
     /**
@@ -35,11 +48,6 @@ public class GeneralHR extends Department implements HandleAllTask {
     @Override
     public void employStatus() {
         getStatus(status);
-    }
-
-    @Override
-    public double getPayment() {
-        return 0;
     }
 
     /**
@@ -340,6 +348,6 @@ public class GeneralHR extends Department implements HandleAllTask {
      * */
     @Override
     public String toString() {
-        return String.format("The new Announcement for today is: %s\n", newsAnnounce()) + super.toString();
+        return String.format("The news Announcement for today is: %s\n", showNewsAndMessages()) + super.toString();
     }
 }
