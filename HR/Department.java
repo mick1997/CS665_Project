@@ -83,7 +83,7 @@ public abstract class Department {
      * */
     @Override
     public String toString() {
-        return String.format("Department name: %s\nDepartment type: %s\n" + "Description: %s\nLocation: %s",
+        return String.format("\nDepartment name: %s\nDepartment type: %s\n" + "Description: %s\nLocation: %s",
                 getDepartName(), getDepartType(), getDescription(), getLocation());
     }
 }

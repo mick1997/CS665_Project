@@ -7,7 +7,7 @@ public class GeneralHR extends Department implements HandleTask {
 
     // instance variable: news, status
     private String news;
-    private String status;
+    private static String status;
 
     /**
      * @param: departName: String, departType: String, description: String, location: Location, timeDurationWork: int,
@@ -18,7 +18,7 @@ public class GeneralHR extends Department implements HandleTask {
                      String news, String status) {
         super(departName, departType, description, location);
         this.news = news;
-        this.status = status;
+        GeneralHR.status = status;
 
         // if employee work enough 8 hours, print appropriate message, else print warning message
         if (timeDurationWork >= 8) {
@@ -45,8 +45,7 @@ public class GeneralHR extends Department implements HandleTask {
      * @return: None
      * get employee getStatus and print appropriate message
      * */
-    @Override
-    public void employStatus() {
+    public static void employStatus() {
         getStatus(status);
     }
 
@@ -326,7 +325,7 @@ public class GeneralHR extends Department implements HandleTask {
      * @return: None
      * get employee status
      * */
-    protected void getStatus(String status) {
+    private static void getStatus(String status) {
 
         switch (status) {
             case "Good":

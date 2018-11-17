@@ -27,10 +27,6 @@ public class GeneralMarketing extends Department implements HandleTask {
         return generateMessage(message);
     }
 
-    // no use
-    @Override
-    public void employStatus() {}
-
     /**
      * @param: message: String
      * @return: List<String>

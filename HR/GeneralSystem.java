@@ -10,19 +10,12 @@ public class GeneralSystem {
     // instance variable countryNumber
     private int countryNumber;
 
-    public static void main(String[] args) {
-        // print the whole records (for test case use)
-        TestCaseClass.printRecords();
-        // create employee information (by using Human Resource System)
-        //create();
-    }
-
     /**
      * @param: None
      * @return: None
-     * for using of Human Resource System
+     * for using of create system
      * */
-    private static void create() {
+    public static void create() {
 
         // store employees' information in ArrayList
         ArrayList<Employee> employees = new ArrayList<>();
@@ -373,29 +366,20 @@ public class GeneralSystem {
         if (employee.getCountryNumber() == 1) {
             //create head quarter object that prints employee situation in head quarter
             System.out.println("\nThe employee status for USA (head Quarter):\n");
-            GeneralHR hq = new GeneralHR("Human Recourse", "Take care of employees",
-                    "The department is in charge of all employees in company", Location.USA, 8,
-                    "The company is in good shape and hired more people.", "Good");
-            hq.employStatus();
-            System.out.println(hq);
+            System.out.println(DepartmentFactory.pickDepartmentUSA("HR"));
+            GeneralHR.employStatus();
         }
         else if (employee.getCountryNumber() == 2) {
             // create Canada site object that prints employee situation in Canada site
             System.out.println("\nThe employee status for Canada:\n");
-            GeneralHR canada = new GeneralHR("Human Recourse", "Take care of employees",
-                    "The department is in charge of all employee in company", Location.Canada, 8,
-                    "Some new hired", "Good");
-            canada.employStatus();
-            System.out.println(canada);
+            System.out.println(DepartmentFactory.pickDepartmentCan("HR"));
+            GeneralHR.employStatus();
         }
         else if (employee.getCountryNumber() == 3) {
             // create Europe site object that prints employee situation in Europe site
             System.out.println("\nThe employee status for Japan:\n");
-            GeneralHR japan = new GeneralHR("Human Recourse", "Take care of employees",
-                    "The department is in charge of all employee in company", Location.Japan, 8,
-                    "Some new hired", "Terminated");
-            japan.employStatus();
-            System.out.println(japan);
+            System.out.println(DepartmentFactory.pickDepartmentJan("HR"));
+            GeneralHR.employStatus();
         }
     }
 
@@ -585,23 +569,17 @@ public class GeneralSystem {
         if (employee.getCountryNumber() == 1) {
             //create head quarter object that prints Marketing Department in head quarter
             System.out.println("\nThe Marketing Department for USA (head Quarter):\n");
-            GeneralMarketing hq = new GeneralMarketing("Marketing", "Manage advertising and price",
-                    "The department is in charge of all Marketing globally", Location.USA, "A good day of work");
-            System.out.println(hq);
+            System.out.println(DepartmentFactory.pickDepartmentUSA("Marketing"));
         }
         else if (employee.getCountryNumber() == 2) {
             // create Canada site object that prints Marketing Department in Canada site
             System.out.println("\nThe Marketing Department for Canada:\n");
-            GeneralMarketing canada = new GeneralMarketing("Marketing", "Manage advertising and price",
-                    "The department is in charge of Marketing in Canada", Location.Canada, "ways to goes on");
-            System.out.println(canada);
+            System.out.println(DepartmentFactory.pickDepartmentCan("Marketing"));
         }
         else if (employee.getCountryNumber() == 3) {
             // create Europe site object that prints Marketing Department in Europe site
             System.out.println("\nThe Marketing Department for Japan:\n");
-            GeneralMarketing japan = new GeneralMarketing("Marketing", "Manage advertising and price",
-                    "The department is in charge of Marketing in Japan", Location.Japan, "better days every day");
-            System.out.println(japan);
+            System.out.println(DepartmentFactory.pickDepartmentJan("Marketing"));
         }
     }
 }

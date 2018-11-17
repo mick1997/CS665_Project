@@ -186,51 +186,32 @@ public class TestCaseClass {
     public static void printRecords() {
 
         // create TestCaseClass object and print employee information such as Manager or Recruiter
-        System.out.println(TestCaseClass.createList());
+        System.out.println(createList());
 
         // Human Resource Department
-        // create USA(head quarter) object that prints employee situation in head quarter
-        System.out.println("\nThe employee getStatus for USA(head Quarter):\n");
-        GeneralHR hq = new GeneralHR("Human Recourse", "Take care of employees",
-                "The department is in charge of all employees in company", Location.USA, 8,
-                "The company is in good shape and hired more people.", "Good");
-        hq.employStatus();
-        System.out.println(hq);
-
+        //create head quarter object that prints employee situation in head quarter
+        System.out.println("\nThe employee status for USA (head Quarter):\n");
+        System.out.println(DepartmentFactory.pickDepartmentUSA("HR"));
+        GeneralHR.employStatus();
         // create Canada site object that prints employee situation in Canada site
-        System.out.println("\nThe employee getStatus for Canada:\n");
-        GeneralHR canada = new GeneralHR("Human Recourse", "Take care of employees",
-                "The department is in charge of all employee in company", Location.Canada, 8,
-                "Some new hired", "Good");
-        canada.employStatus();
-        System.out.println(canada);
-
-        // create Japan site object that prints employee situation in Europe site
-        System.out.println("\nThe employee getStatus for Japan:\n");
-        GeneralHR japan = new GeneralHR("Human Recourse", "Take care of employees",
-                "The department is in charge of all employee in company", Location.Japan, 8,
-                "Some new hired", "Terminated");
-        japan.employStatus();
-        System.out.println(japan + "\n");
+        System.out.println("\nThe employee status for Canada:\n");
+        System.out.println(DepartmentFactory.pickDepartmentCan("HR"));
+        GeneralHR.employStatus();
+        // create Europe site object that prints employee situation in Europe site
+        System.out.println("\nThe employee status for Japan:\n");
+        System.out.println(DepartmentFactory.pickDepartmentJan("HR"));
+        GeneralHR.employStatus();
 
         // Marketing department
         //create head quarter object that prints Marketing Department in head quarter
         System.out.println("\nThe Marketing Department for USA (head Quarter):\n");
-        GeneralMarketing hq1 = new GeneralMarketing("Marketing", "Manage advertising and price",
-                "The department is in charge of all Marketing globally", Location.USA, "A good day of work");
-        System.out.println(hq1);
-
+        System.out.println(DepartmentFactory.pickDepartmentUSA("Marketing"));
         // create Canada site object that prints Marketing Department in Canada site
         System.out.println("\nThe Marketing Department for Canada:\n");
-        GeneralMarketing canada1 = new GeneralMarketing("Marketing", "Manage advertising and price",
-                "The department is in charge of Marketing in Canada", Location.Canada, "ways to goes on");
-        System.out.println(canada1);
-
+        System.out.println(DepartmentFactory.pickDepartmentCan("Marketing"));
         // create Europe site object that prints Marketing Department in Europe site
         System.out.println("\nThe Marketing Department for Japan:\n");
-        GeneralMarketing japan1 = new GeneralMarketing("Marketing", "Manage advertising and price",
-                "The department is in charge of Marketing in Japan", Location.Japan, "better days every day");
-        System.out.println(japan1);
+        System.out.println(DepartmentFactory.pickDepartmentJan("Marketing"));
 
         System.out.println();
         testCase();

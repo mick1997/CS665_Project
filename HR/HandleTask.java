@@ -6,8 +6,7 @@ import java.util.List;
 public interface HandleTask {
 
     /**
-     * abstract method of showNewsAndMessages(), employeeStatus()
+     * abstract method of showNewsAndMessages()
      */
     List<String> showNewsAndMessages();
-    void employStatus();
 }
