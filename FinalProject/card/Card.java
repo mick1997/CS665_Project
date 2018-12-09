@@ -1,4 +1,4 @@
-package FinalProject;
+package FinalProject.card;
 
 public class Card {
 
@@ -10,7 +10,7 @@ public class Card {
         this.suit = suit;
     }
 
-    protected int getFaceValue() {
+    public int getFaceValue() {
         return faceValue;
     }
 

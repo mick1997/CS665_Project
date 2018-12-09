@@ -1,4 +1,4 @@
-package FinalProject;
+package FinalProject.card;
 
 public enum Suit {
     Club,

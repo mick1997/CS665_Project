@@ -1,4 +1,4 @@
-package FinalProject;
+package FinalProject.card;
 
 import java.util.ArrayList;
 import java.util.Collections;

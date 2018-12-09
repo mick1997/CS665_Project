@@ -1,9 +1,12 @@
-package FinalProject;
+package FinalProject.controller;
+
+import FinalProject.card.Card;
+import FinalProject.card.Hand;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ScoreAndRuleAdjust extends Hand implements GamePolicy {
+public class ScoreAndRuleAdjust extends Hand implements IGamePolicy {
 
     public int score() {
 

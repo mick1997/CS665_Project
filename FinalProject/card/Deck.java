@@ -1,4 +1,4 @@
-package FinalProject;
+package FinalProject.card;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +32,7 @@ public class Deck {
         }
     }
 
-    protected void shuffle() {
+    public void shuffle() {
         for (int i = 0; i < cards.size() - 1; i++) {
             int j = random.nextInt(cards.size() - i) + i;
             Card card1 = cards.get(i);

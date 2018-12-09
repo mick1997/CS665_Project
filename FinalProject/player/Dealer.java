@@ -1,4 +1,6 @@
-package FinalProject;
+package FinalProject.player;
+
+import FinalProject.card.Card;
 
 public class Dealer implements HandleTask {
 
