@@ -6,22 +6,39 @@ import FinalProject.controller.IGamePolicy;
 import FinalProject.controller.IPlayer;
 import FinalProject.controller.ScoreAdjust;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
-public class HumanPlayer extends Player implements IPlayer, ICardProvider, IGamePolicy {
+public class HumanDealer extends Player implements IPlayer, IGamePolicy, ICardProvider {
 
     private ScoreAdjust scores;
     private Card card;
     private int amount;
-    private static HumanPlayer instance = new HumanPlayer();
+    private static HumanDealer instance = new HumanDealer();
 
-    private HumanPlayer() {}
+    private HumanDealer() {}
 
-    public HumanPlayer getInstance() {
+    public static HumanDealer getInstance() {
         if (instance == null) {
-            return new HumanPlayer();
+            return new HumanDealer();
         }
         return instance;
+    }
+
+    // getNext ???
+    @Override
+    public Card[] getNext(int count) {
+        List<Card> cards = new ArrayList<>();
+        for (Card card : cards) {
+            return
+        }
+        return new Card[0];
+    }
+
+    @Override
+    public boolean isPlayerWin(IPlayer dealer, IPlayer player) {
+        return dealer.isBlackJack() || dealer.isHigher();
     }
 
     @Override
@@ -29,9 +46,9 @@ public class HumanPlayer extends Player implements IPlayer, ICardProvider, IGame
         System.out.println("The card received are: " + Arrays.toString(newCards));
     }
 
+    // thinking ???
     @Override
     public void think() {
-        System.out.println("thinking ...");
 
     }
 
@@ -50,9 +67,10 @@ public class HumanPlayer extends Player implements IPlayer, ICardProvider, IGame
         return scores.score() > 21;
     }
 
-    public void placeBet(int amount) {
+    @Override
+    public void addCredit(int amount) {
         this.amount = amount;
-        System.out.println("The amount of bets is placed: " + amount);
+        System.out.println("The amount being add is: " + amount);
     }
 
     @Override
@@ -63,31 +81,9 @@ public class HumanPlayer extends Player implements IPlayer, ICardProvider, IGame
         return 0;
     }
 
-    @Override
-    public void addCredit(int amount) {
-        this.amount = amount;
-        System.out.println("The amount being add is: " + amount);
-    }
-
+    // higher ???
     @Override
     public boolean isHigher() {
-
-        if (card.getFaceValue() ) {
-            return true;
-        }
         return false;
-    }
-
-    @Override
-    public Card[] getNext(int count) {
-        if (count == 0) {
-            return new Card[0];
-        }
-        return new Card[0];
-    }
-
-    @Override
-    public boolean isPlayerWin(IPlayer dealer, IPlayer player) {
-        return player.isBlackJack() || player.isHigher();
     }
 }

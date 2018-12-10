@@ -1,6 +1,5 @@
 package FinalProject.controller;
 
-
 import FinalProject.card.Card;
 
 
@@ -23,8 +22,10 @@ public class GameController {
     private boolean gameOver = false;
 
     public void run() {
+
         dealInitialHands();
         examineStatus();
+
         while (!gameOver) {
             performRound();
             examineStatus();
@@ -33,23 +34,26 @@ public class GameController {
     }
 
     private void dealInitialHands() {
+
         dealer.acceptCards(cardProvider.getNext(2));
-        for (IPlayer player:
-             players) {
+
+        for (IPlayer player: players) {
             Card[] twoCards = cardProvider.getNext(2);
             player.acceptCards(twoCards);
         }
     }
 
-    private void performRound(){
+    private void performRound() {
+
         dealer.think();
-        if(!dealer.isDone()){
+
+        if(!dealer.isDone()) {
             dealer.acceptCards(cardProvider.getNext(1));
         }
-        for (IPlayer player :
-                players) {
-            if(!player.isDone())
+        for (IPlayer player : players) {
+            if(!player.isDone()) {
                 player.think();
+            }
             if(!player.isDone()){
                 player.acceptCards(cardProvider.getNext(1));
             }
@@ -57,11 +61,12 @@ public class GameController {
     }
 
     private void examineStatus() {
+
         boolean dealerIsDone = dealer.isBlackJack() || dealer.isBusted();
         boolean allPlayersDone = true;
-        for (IPlayer player:
-             players) {
-            if(! player.isDone()){
+
+        for (IPlayer player: players) {
+            if(!player.isDone()) {
                 allPlayersDone = false;
                 break;
             }
@@ -72,11 +77,11 @@ public class GameController {
     }
 
     private void allocateCredits() {
-        for (IPlayer player :
-                players) {
+
+        for (IPlayer player : players) {
             boolean playerWin = gamePolicy.isPlayerWin(dealer, player);
             int amount = player.getBet();
-            if(playerWin){
+            if(playerWin) {
                 player.addCredit(amount * 2);
                 dealer.addCredit(-amount);
             }

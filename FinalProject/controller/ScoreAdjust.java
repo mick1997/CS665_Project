@@ -6,7 +6,7 @@ import FinalProject.card.Hand;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ScoreAndRuleAdjust extends Hand implements IGamePolicy {
+public class ScoreAdjust extends Hand {
 
     public int score() {
 
@@ -71,30 +71,30 @@ public class ScoreAndRuleAdjust extends Hand implements IGamePolicy {
         }
     }
 
-    @Override
-    public boolean isBusted() {
-        return score() > 21;
-    }
-
-    @Override
-    public boolean isBlackjack() {
-
-        if (cards.size() != 2) {
-            return false;
-        }
-
-        Card first = cards.get(0);
-        Card second = cards.get(1);
-        return (isAce(first) && isFaceCard(second)) || (isAce(second) && isFaceCard(first));
-    }
-
-    @Override
-    public boolean isAce(Card card) {
-        return card.getFaceValue() == 1;
-    }
-
-    @Override
-    public boolean isFaceCard(Card card) {
-        return card.getFaceValue() >= 11 && card.getFaceValue() <= 13;
-    }
+//    @Override
+//    public boolean isBusted() {
+//        return score() > 21;
+//    }
+//
+//    @Override
+//    public boolean isBlackjack() {
+//
+//        if (cards.size() != 2) {
+//            return false;
+//        }
+//
+//        Card first = cards.get(0);
+//        Card second = cards.get(1);
+//        return (isAce(first) && isFaceCard(second)) || (isAce(second) && isFaceCard(first));
+//    }
+//
+//    @Override
+//    public boolean isAce(Card card) {
+//        return card.getFaceValue() == 1;
+//    }
+//
+//    @Override
+//    public boolean isFaceCard(Card card) {
+//        return card.getFaceValue() >= 11 && card.getFaceValue() <= 13;
+//    }
 }
